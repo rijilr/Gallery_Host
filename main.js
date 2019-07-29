@@ -1,3 +1,4 @@
+//M.AutoInit();
 $(document).ready(function(){
     $('.tooltipped').tooltip();
   });

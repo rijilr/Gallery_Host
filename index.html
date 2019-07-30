@@ -57,12 +57,50 @@
 		</th>
 		<div id="modal1" class="modal">
 				<div class="modal-content">
-				  <h4>Add Entry</h4>
-				  <p>Enter details in the form</p>
-				  
+				  <h3>Add Entry</h3>
+				    <form class="std-form" onsubmit="">
+						<div class="row">
+					    <div class="input-field col s6">
+							<i class="material-icons prefix">child_care</i>
+							<input type="text" id="first-name" class="std-form">
+							<label for="first-name">First Name</label>
+					    </div>
+					    <div class="input-field col s6">
+							<input type="text" id="last-name" class="std_form">
+							<label for="last-name">Last Name</label>
+						</div>
+						<div class="input-field col s3">
+								<i class="material-icons prefix">fingerprint</i>
+								<input type="number" id="std-id" class="std-form">
+								<label for="std-id">Student ID</label>
+						</div>
+						<div class="input-field col s2 offset-s3">
+								<select id="std-class" name="cars">
+										<option value="10">X</option>
+										<option value="9">IX</option>
+										<option value="8">VIII</option>
+										<option value="7">VII</option>
+										<option value="6">VI</option>
+										<option value="5">V</option>
+								</select>
+								<label for="std-class">Student Class</label>
+						</div>
+						<div class="input-field col s12">
+								<i class="material-icons prefix">account_circle</i>
+								<input type="text" id="guardian" class="std_form">
+								<label for="guardian">Guardian</label>
+						</div>
+						<div class="input-field col s12">
+								<i class="material-icons prefix">call</i>
+								<input type="tel" id="phone" class="std_form">
+								<label for="phone">Phone</label>
+						</div>
+						</div>
+						<input type="submit" id="std_form"class="std-form">
+				    </form>
 				</div>
 				<div class="modal-footer">
-				  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+				  <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons prefix">close</i></a>
 				</div>
 		</div>
 	</table>
@@ -72,5 +110,6 @@
 </footer>
 <script src="path.js"></script>
 <script src="main.js"></script>
+<script src="student.js"></script>
 </body>
 </html>

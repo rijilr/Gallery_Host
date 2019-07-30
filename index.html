@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<title>Gallery</title>
 </head>
 <body>
@@ -23,7 +25,7 @@
 		</ul>
 	</div>
 </header>
-<section class="dispay-image">	
+<section class="dispay-image hide">	
 	<div class="containe">
 		<div class="image-container">
 			<img class="displayed-image tooltipped hoverable" data-tooltip="Thomas Shelby" data-position="top" alt="Image Full-Size" src="img/pics/pic1.jpg">
@@ -31,13 +33,44 @@
 	</div>
 	<div class="container hoverable">
 			<div class="thumbnail"> </div>
+	</div>
+</section>
+<section class="student-management container">
+	<table class="highlight">
+		<th>
+			Student ID
+		</th>
+		<th>
+			Student Name
+		</th>
+		<th>
+			Class
+		</th>
+		<th>
+			Guardian
+		</th>
+		<th>
+			Phone Number
+		</th>
+		<th>
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="large material-icons">add</i></a>
+		</th>
+		<div id="modal1" class="modal">
+				<div class="modal-content">
+				  <h4>Add Entry</h4>
+				  <p>Enter details in the form</p>
+				  
+				</div>
+				<div class="modal-footer">
+				  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+				</div>
 		</div>
-		</section>
+	</table>
+</section>
 <footer>
 	<h2>&copy; Powered by HTML/CSS and JavaScript </h2>
 </footer>
 <script src="path.js"></script>
 <script src="main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

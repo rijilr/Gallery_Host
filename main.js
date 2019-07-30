@@ -1,4 +1,4 @@
-//M.AutoInit();
+M.AutoInit();
 $(document).ready(function(){
     $('.tooltipped').tooltip();
   });
@@ -32,4 +32,5 @@ function displayImage(imgSrc) {
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems, options);
   });
+
 

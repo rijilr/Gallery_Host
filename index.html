@@ -2,11 +2,13 @@
 <html>
 <head>
 	<script src="jquery.js"></script>
+	<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="student.js"></script>
 	<title>Gallery</title>
 </head>
 <body>
@@ -25,7 +27,7 @@
 		</ul>
 	</div>
 </header>
-<section class="dispay-image hide">	
+<section class="dispay-image">	
 	<div class="containe">
 		<div class="image-container">
 			<img class="displayed-image tooltipped hoverable" data-tooltip="Thomas Shelby" data-position="top" alt="Image Full-Size" src="img/pics/pic1.jpg">
@@ -37,7 +39,7 @@
 </section>
 <section class="student-management container">
 	<table class="highlight">
-		<th>
+		<tbody id="std_tbody"><th>
 			Student ID
 		</th>
 		<th>
@@ -54,49 +56,38 @@
 		</th>
 		<th>
 			<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="large material-icons">add</i></a>
-		</th>
+		</th></tbody>
 		<div id="modal1" class="modal">
 				<div class="modal-content">
 				  <h3>Add Entry</h3>
-				    <form class="std-form" onsubmit="">
+				    <form class="std-form">
 						<div class="row">
-					    <div class="input-field col s6">
+					    <div class="input-field col s12">
 							<i class="material-icons prefix">child_care</i>
-							<input type="text" id="first-name" class="std-form">
-							<label for="first-name">First Name</label>
+							<input name="name" id="name" type="text" class="std_form">
+							<label for="name">Full Name</label>
 					    </div>
-					    <div class="input-field col s6">
-							<input type="text" id="last-name" class="std_form">
-							<label for="last-name">Last Name</label>
-						</div>
 						<div class="input-field col s3">
 								<i class="material-icons prefix">fingerprint</i>
-								<input type="number" id="std-id" class="std-form">
+								<input name="studentid" type="number" id="std-id" class="std_form">
 								<label for="std-id">Student ID</label>
 						</div>
 						<div class="input-field col s2 offset-s3">
-								<select id="std-class" name="cars">
-										<option value="10">X</option>
-										<option value="9">IX</option>
-										<option value="8">VIII</option>
-										<option value="7">VII</option>
-										<option value="6">VI</option>
-										<option value="5">V</option>
-								</select>
-								<label for="std-class">Student Class</label>
+								<input name="standard" type="number" id="standard" class="std_form">
+								<label for="standard">Class</label>
 						</div>
 						<div class="input-field col s12">
 								<i class="material-icons prefix">account_circle</i>
-								<input type="text" id="guardian" class="std_form">
+								<input name="guardian" type="text" id="guardian" class="std_form">
 								<label for="guardian">Guardian</label>
 						</div>
 						<div class="input-field col s12">
 								<i class="material-icons prefix">call</i>
-								<input type="tel" id="phone" class="std_form">
+								<input name="phone" type="tel" id="phone" class="std_form">
 								<label for="phone">Phone</label>
 						</div>
 						</div>
-						<input type="submit" id="std_form"class="std-form">
+						<input type="submit" id="std_form" class="std-form">
 				    </form>
 				</div>
 				<div class="modal-footer">
@@ -104,12 +95,14 @@
 				</div>
 		</div>
 	</table>
+	<div id="result">
+
+	</div>
 </section>
 <footer>
 	<h2>&copy; Powered by HTML/CSS and JavaScript </h2>
 </footer>
 <script src="path.js"></script>
 <script src="main.js"></script>
-<script src="student.js"></script>
 </body>
 </html>

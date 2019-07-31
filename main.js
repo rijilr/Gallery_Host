@@ -5,7 +5,7 @@ $(document).ready(function(){
 const displayedImage = document.querySelector(".displayed-image");
 
 const thumbBar = document.querySelector(".thumbnail");
-for(var i = 1; i <= Object.keys(path.pic).length; i++) {
+for(let i = 1; i <= Object.keys(path.pic).length; i++) {
     var divImage = document.createElement('div')
     divImage.className = "thumb-image waves-effect";
     var newImage = document.createElement('img');
@@ -32,5 +32,6 @@ function displayImage(imgSrc) {
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems, options);
   });
+
 
 

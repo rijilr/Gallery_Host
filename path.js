@@ -1,4 +1,4 @@
-var path = {
+const path = {
   "pic": {
     "1":[ "img/pics/pic1.jpg", "Thomas Shelby" ],
     "2":[ "img/pics/pic2.jpg", "The three brothers." ],
@@ -11,3 +11,4 @@ var path = {
     "9":[ "img/pics/pic9.jpg", "Tommy and Grace <3" ]
   }
 };
+

@@ -139,3 +139,8 @@ header a{
 table{
 	margin-top: 2%;
 }
+.search-wrapper{
+	padding-top: 3%;
+	width : 30%;
+	display: inline-flex;
+}

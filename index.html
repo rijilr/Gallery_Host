@@ -2,7 +2,7 @@
 <html>
 <head>
 	<script src="jquery.js"></script>
-	<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -11,24 +11,25 @@
 	<script src="student.js"></script>
 	<title>Gallery</title>
 </head>
-<body>
+<body onload="loadTableData();">
 <header class="header-container">
 	<div class="header-wrapper">
 		<a href="#">
 			<img src="img/logo.png" alt="Logo">
 			<h1>Gallery</h1>
 		</a>
-		<ul class="collection">
-			<li><a class="collection-item" href="#">Home</a></li>
-			<li><a class="collection-item" href="#">Services</a></li>
-			<li><a class="collection-item" href="#">Student Management</a></li>
-			<li><a class="collection-item active" href="#">Gallery</a></li>
-			<li><a class="collection-item" href="#">About</a></li>
+		<ul class="collection" onclick="this.classList.remove('active');">
+			<li><a id ="Home" class="collection-item" href="#">Home</a></li>
+			<li><a id ="Services" class="collection-item" href="#">Services</a></li>
+			<li><a id ="Student Management active" onclick="loadStudentManagement();" class="collection-item" href="#">Student Management</a></li>
+			<li><a id ="Employee Management" onclick="loadEmployeeManagement();" class="collection-item" href="#">Employee Management</a></li>
+			<li><a id ="Gallery" onclick="loadGallery();" class="collection-item" href="#">Gallery</a></li>
+			<li><a id ="About" class="collection-item" href="#">About</a></li>
 		</ul>
 	</div>
 </header>
-<section class="dispay-image">	
-	<div class="containe">
+<section class="dispay-image hide" id="gallery_main">	
+	<div class="container">
 		<div class="image-container">
 			<img class="displayed-image tooltipped hoverable" data-tooltip="Thomas Shelby" data-position="top" alt="Image Full-Size" src="img/pics/pic1.jpg">
 		</div>
@@ -37,7 +38,11 @@
 			<div class="thumbnail"> </div>
 	</div>
 </section>
-<section class="student-management container">
+<section id="student_management" class="student-management container">
+		<div class="search-wrapper">
+			<input id="search" placeholder="Search"><i class="material-icons">search</i>
+			<div class="search-results"></div>
+		</div>
 	<table class="highlight">
 		<tbody id="std_tbody"><th>
 			Student ID
@@ -55,12 +60,14 @@
 			Phone Number
 		</th>
 		<th>
-			<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="large material-icons">add</i></a>
-		</th></tbody>
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="document.getElementById('std_update').style = 'display:none'; 
+			document.getElementById('std_submit').style = 'display:block;';"><i class="large material-icons">add</i></a>
+		</th>
+		</tbody>
 		<div id="modal1" class="modal">
 				<div class="modal-content">
 				  <h3>Add Entry</h3>
-				    <form class="std-form">
+				    <form class="std-form" action="">
 						<div class="row">
 					    <div class="input-field col s12">
 							<i class="material-icons prefix">child_care</i>
@@ -87,7 +94,8 @@
 								<label for="phone">Phone</label>
 						</div>
 						</div>
-						<input type="submit" id="std_form" class="std-form">
+						<input type="submit" value="Add data" id="std_submit" class="std-form">
+						<input type="button" value="Update" id="std_update">
 				    </form>
 				</div>
 				<div class="modal-footer">
@@ -98,6 +106,12 @@
 	<div id="result">
 
 	</div>
+	<!-- <div id="modal2" class="modal">
+			<div class="modal-content">
+
+			</div> 
+
+	</div>-->
 </section>
 <footer>
 	<h2>&copy; Powered by HTML/CSS and JavaScript </h2>

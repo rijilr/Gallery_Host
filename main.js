@@ -27,11 +27,16 @@ function displayImage(imgSrc) {
     var id = imgSrc.match(/\d+/)[0];
     displayedImage.setAttribute('data-position',"top");
     displayedImage.setAttribute('data-tooltip',path.pic[id][1]);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
+}
+document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems, options);
-  });
-
-
-
+});
+function loadStudentManagement(){
+  document.getElementById("gallery_main").classList.add("hide");
+  document.getElementById('student_management').classList.remove("hide");
+}
+function loadGallery(){
+  document.getElementById("gallery_main").classList.remove("hide");
+  document.getElementById('student_management').classList.add("hide");
+}

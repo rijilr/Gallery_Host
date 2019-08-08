@@ -1,0 +1,3 @@
+onclick="this.classList.remove('active');"
+storage.removeItem(${key});location.reload();
+ediItem(${key});

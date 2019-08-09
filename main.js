@@ -33,10 +33,43 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Tooltip.init(elems, options);
 });
 function loadStudentManagement(){
+  var ele = document.getElementsByClassName('student_label');
+    for (var i = 0; i < ele.length; i++ ) {
+      ele[i].style.display = "block"; 
+    }
+  var ele1 = document.getElementsByClassName('employee_label');
+    for (var i = 0; i < ele1.length; i++ ) {
+      ele1[i].style.display = "none"; 
+  }
   document.getElementById("gallery_main").classList.add("hide");
-  document.getElementById('student_management').classList.remove("hide");
+  document.getElementById("student_management").classList.remove("hide");
+  document.getElementById("employee_management").classList.add("hide");
+  document.getElementById('std_submit').style = "display:block;";
+  document.getElementById('std_update').style = "display:none;";
+  document.getElementById('employee_update').style = "display:none;";
+  document.getElementById('employee_submit').style = "display:none;";
+
 }
 function loadGallery(){
   document.getElementById("gallery_main").classList.remove("hide");
   document.getElementById('student_management').classList.add("hide");
+  document.getElementById('employee_management').classList.add("hide");
+  
 }
+function loadEmployeeManagement(){
+  var ele = document.getElementsByClassName('student_label');
+    for (var i = 0; i < ele.length; i++ ) {
+      ele[i].style.display = "none"; 
+    }
+  var ele1 = document.getElementsByClassName('employee_label');
+    for (var i = 0; i < ele1.length; i++ ) {
+      ele1[i].style.display = "block"; 
+  }
+  document.getElementById("gallery_main").classList.add("hide");
+  document.getElementById('student_management').classList.add("hide");
+  document.getElementById('employee_management').classList.remove("hide");
+  document.getElementById('std_submit').style = "display:none;";
+  document.getElementById('std_update').style = "display:none;";
+  document.getElementById('employee_update').style = "display:none;";
+  document.getElementById('employee_submit').style = "display:block;";
+  }

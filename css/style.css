@@ -144,3 +144,10 @@ table{
 	width : 30%;
 	display: inline-flex;
 }
+td:nth-child(2) {
+	text-align: center; /* NEW */
+  }
+  td:nth-child(5) {
+	text-align: center; /* NEW */
+  }
+  

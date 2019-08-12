@@ -111,7 +111,7 @@ function editItem(key,array,table){
                 console.log(test);
                 node[key]=test;
                 storage.setItem(array,JSON.stringify(node));
-                loadTableData(array,table);
+                location.reload();
             }
         });
 }

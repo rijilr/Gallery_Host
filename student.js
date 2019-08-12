@@ -21,8 +21,8 @@ $.fn.serializeObject = function(){
 function addData(array,table){
         let node = JSON.parse(storage.getItem(array));
         let object = $('.std-form').serializeObject();
-        let name, studentid,standard,guardian,phone = object;
-        let rows = `<tr><td>${name}</td><td>${studentid} </td><td> ${standard} </td><td> ${guardian} </td><td>${phone} </td><td><a class="waves-effect waves-light btn" onclick="removeItem(${node.length},'${array}','${table}');"><i class="material-icons">backspace</i></a></td><td><a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="editItem(${node.length},'${array}','${table}')"><i class="material-icons">edit</i></a></td></tr>`;
+        let name, id,standard,guardian,phone = object;
+        let rows = `<tr><td>${name}</td><td>${id} </td><td> ${standard} </td><td> ${guardian} </td><td>${phone} </td><td><a class="waves-effect waves-light btn" onclick="removeItem(${node.length},'${array}','${table}');"><i class="material-icons">backspace</i></a></td><td><a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="editItem(${node.length},'${array}','${table}')"><i class="material-icons">edit</i></a></td></tr>`;
         $(rows).appendTo(table);
         console.log(node);
         node.push(object);
@@ -42,7 +42,7 @@ function loadTableData(array,table){
         let object = element;
         console.log(object.name);
         let name = object.name;
-        let student_id = object.studentid;
+        let student_id = object.id;
         let standard = object.standard;
         let guardian = object.guardian;
         let phone = object.phone;

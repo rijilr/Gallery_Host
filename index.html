@@ -2,42 +2,145 @@
 <html>
 <head>
 	<script src="jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="student.js"></script>
 	<title>Gallery</title>
 </head>
-<body>
+<body onload="createArrays(); loadEmployeeManagement();loadTableData('student_array','std_tbody');loadTableData('employee_array','employee_tbody')">
 <header class="header-container">
 	<div class="header-wrapper">
 		<a href="#">
 			<img src="img/logo.png" alt="Logo">
 			<h1>Gallery</h1>
 		</a>
-		<ul class="collection">
-			<li><a class="collection-item" href="#">Home</a></li>
-			<li><a class="collection-item" href="#">Services</a></li>
-			<li><a class="collection-item" href="#">Student Management</a></li>
-			<li><a class="collection-item active" href="#">Gallery</a></li>
-			<li><a class="collection-item" href="#">About</a></li>
+		<ul class="collection" onclick="this.classList.remove('active');">
+			<li><a id ="Home" class="collection-item" href="#">Home</a></li>
+			<li><a id ="Services" class="collection-item" href="#">Services</a></li>
+			<li><a id ="studentManagementactive" onclick="loadStudentManagement();" class="collection-item" href="#">Student Management</a></li>
+			<li><a id ="employeeManagement" onclick="loadEmployeeManagement();" class="collection-item" href="#">Employee Management</a></li>
+			<li><a id ="Gallery" onclick="loadGallery();" class="collection-item" href="#">Gallery</a></li>
+			<li><a id ="About" class="collection-item" href="#">About</a></li>
 		</ul>
 	</div>
 </header>
-<section class="dispay-image">	
-	<div class="containe">
+<section class="dispay-image hide" id="gallery_main">	
+	<div class="container">
 		<div class="image-container">
 			<img class="displayed-image tooltipped hoverable" data-tooltip="Thomas Shelby" data-position="top" alt="Image Full-Size" src="img/pics/pic1.jpg">
 		</div>
 	</div>
 	<div class="container hoverable">
 			<div class="thumbnail"> </div>
+	</div>
+</section>
+<section id="student_management" class="student-management container hide">
+		<div class="search-wrapper">
+			<input id="search" onkeyup="searchItem(this.value,'std_table');" placeholder="Search"><i class="material-icons">search</i>
+			<div class="search-results"></div>
 		</div>
-		</section>
+	<table id="std_table" class="highlight">
+		<th onclick='sortItem("name","student_array","std_tbody");'>
+			Student Name
+		</th>
+		<th onclick='sortItem("id","student_array","std_tbody");'>
+			Student ID
+		</th>
+		<th onclick='sortItem("standard","student_array","std_tbody");'>
+			Class
+		</th>
+		<th onclick='sortItem("guardian","student_array","std_tbody");'>
+			Guardian
+		</th>
+		<th onclick='sortItem("phone","student_array","std_tbody");'>
+			Phone Number
+		</th>
+		<th>
+			<a class="waves-effect waves-light btn modal-trigger" onclick="$('#global_form')[0].reset();" data-target="modal1"><i class="large material-icons">add</i></a>
+		</th>
+		<tbody id="std_tbody"></tbody>
+	</table>
+</section>
+<section class="global-form">
+		<div id="modal1" class="modal">
+				<div class="modal-content">
+				  <h3>Add Entry</h3>
+				    <form id="global_form" class="std-form">
+						<div class="row">
+					    <div class="input-field col s12">
+							<i class="material-icons prefix">child_care</i>
+							<input name="name" id="name" type="text" class="std_form validate invalid">
+							<label for="name">Full Name</label>
+					    </div>
+						<div class="input-field col s3">
+								<i class="material-icons prefix">fingerprint</i>
+								<input name="id" type="number" id="std-id" class="std_form validate invalid">
+								<label class="student_label" for="std-id">Student ID</label>
+								<label class="employee_label" for="std-id">Employee ID</label>
+						</div>
+						<div class="input-field col s2 offset-s3">
+								<input name="standard" type="text" id="standard" class="std_form validate invalid">
+								<label class="student_label" for="standard">Class</label>
+								<label class="employee_label" for="guardian">Department</label>
+						</div>
+						<div class="input-field col s12">
+								<i class="material-icons prefix">account_circle</i>
+								<input name="guardian" type="text" id="guardian" class="std_form validate invalid">
+								<label class='student_label' for="guardian">Guardian</label>
+								<label class="employee_label" for="guardian">Manager</label>
+						</div>
+						<div class="input-field col s12">
+								<i class="material-icons prefix">call</i>
+								<input name="phone" type="tel" id="phone" data-length="10" class="std_form validate invalid">
+								<label for="phone">Phone</label>
+						</div>
+						</div>
+						<input type="button" class="student modal-close" value="Add data" onclick='addData("student_array","std_tbody");' id="std_submit" class="std-form">
+						<input type="button" class="student modal-close" value="Update" id="std_update">
+						<input type="button" class="employeee modal-close" value="Add data" onclick='addData("employee_array","employee_tbody");' id="employee_submit" class="std-form">
+						<input type="button" class="employee modal-close" value="Update" id="employee_update">
+				    </form>
+				</div>
+				<div class="modal-footer">
+				  <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons prefix">close</i></a>
+				</div>
+		</div>
+</section>
+<section id="employee_management" class="employee-management container">
+		<div class="search-wrapper">
+				<input id="search_employee" onchange="searchItem(this.value,'employee_tbody');" placeholder="Search"><i class="material-icons">search</i>
+				<div class="search-results"></div>
+			</div>
+		<table id="employee_table" class="highlight">
+			<th onclick='sortItem("name","employee_array","employee_tbody");'>
+				Employee Name
+			</th>
+			<th onclick='sortItem("employeeid","employee_array","employee_tbody");'>
+				Employee ID
+			</th>
+			<th onclick='sortItem("department","employee_array","employee_tbody");'>
+				Department
+			</th>
+			<th onclick='sortItem("manager","employee_array","employee_tbody");'>
+				Manager
+			</th>
+			<th onclick='sortItem("phone","employee_array","employee_tbody");'>
+				Phone Number
+			</th>
+			<th>
+				<a class="waves-effect waves-light btn modal-trigger" onclick="loadTableData()" href="#modal1"><i class="large material-icons">add</i></a>
+			</th>
+			<tbody id="employee_tbody"></tbody>
+		</table>
+</section>
 <footer>
 	<h2>&copy; Powered by HTML/CSS and JavaScript </h2>
 </footer>
 <script src="path.js"></script>
 <script src="main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

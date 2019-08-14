@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head  onload="createArrays();">
+<head>
 	<script src="jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -11,7 +11,7 @@
 	<script src="student.js"></script>
 	<title>Gallery</title>
 </head>
-<body onload="loadEmployeeManagement();loadTableData('student_array','std_tbody');loadTableData('employee_array','employee_tbody')">
+<body onload="createArrays(); loadEmployeeManagement();loadTableData('student_array','std_tbody');loadTableData('employee_array','employee_tbody')">
 <header class="header-container">
 	<div class="header-wrapper">
 		<a href="#">
@@ -60,7 +60,7 @@
 			Phone Number
 		</th>
 		<th>
-			<a class="waves-effect waves-light btn modal-trigger" onclick="$('#global_form')[0].reset();" href="#modal1"><i class="large material-icons">add</i></a>
+			<a class="waves-effect waves-light btn modal-trigger" onclick="$('#global_form')[0].reset();" data-target="modal1"><i class="large material-icons">add</i></a>
 		</th>
 		<tbody id="std_tbody"></tbody>
 	</table>
